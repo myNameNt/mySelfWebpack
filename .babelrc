@@ -1,0 +1,9 @@
+
+{
+  "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+  ],
+  "comments": false,//不产生注释
+  "plugins": ["@babel/plugin-transform-runtime"]
+}

@@ -1,0 +1,14 @@
+.box {
+  background: url(./assets/img/icon.png) no-repeat center center;
+  width: 500px;
+  height: 500px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0px 0px 5px 5px #333;
+  
+  p{
+    font-size: 25px;
+    text-shadow: 5px 5px 5px #FF0000;
+    transform: translateX(10px);
+  }
+}
