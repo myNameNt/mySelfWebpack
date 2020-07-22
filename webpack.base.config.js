@@ -7,7 +7,10 @@ const MiniCssExtract = require('mini-css-extract-plugin');
 
 const devMode = process.env.NODE_ENV !== 'production'
 let config = {
-  entry: './src/main.jsx',
+  entry: {
+    main: './src/main.jsx',
+    mainTwo: './src/mianTwo.js'
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
@@ -16,8 +19,13 @@ let config = {
   module: {
     rules: [
       {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: 'babel-loader'
+      },
+      {
         test: /\.jsx$/,
-        exclude: /node_module/,
+        exclude: /node_modules/,
         use: 'babel-loader'
       },
       {
@@ -90,6 +98,28 @@ let config = {
       // }
 
     ]
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all', // 默认是async 设置为all就能拆出第三方包
+      minSize: 30000,
+      minChunks: 1,
+      maxAsyncRequests: 5,
+      maxInitialRequests: 3,
+      automaticNameDelimiter: '~',
+      name: true,
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true
+        }
+      }
+    }
   },
   plugins: [
     new HtmlWebpackPlugin({
