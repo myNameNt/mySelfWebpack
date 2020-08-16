@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
-import style from './App.scss';
-import img from './assets/img/icon.png'
-import { reverse } from './assets/js/tools.js'
-import Home from "./Home.jsx";
+import React, { Component } from 'react'
+import { Route, Switch, BrowserRouter as Router} from 'react-router-dom'
+import Home from './view/home/Home'
+import Login from './view/login/Login'
 export default class App extends Component {
   constructor(props) {
     super(props)
   }
-  render () {
+  render() {
     return (
-      <div className={style.box}>
-        <img src={img} />
-        <p>my {reverse('react-webpack-start')}</p>
-        <Home></Home>
-      </div>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/login" component={Login} />
+        </Switch>
+      </Router>
     )
   }
 }

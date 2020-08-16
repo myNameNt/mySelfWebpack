@@ -31,6 +31,9 @@
     "webpack-merge": "^5.0.9"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.10.4",
+    "@babel/runtime-corejs3": "^7.11.2",
+    "core-js": "^3.6.5",
     "lib-flexible": "^0.3.2",
     "postcss": "^7.0.32",
     "postcss-px2rem": "^0.3.0",
@@ -47,7 +50,7 @@
   "browserslist": [
     "> 1%",
     "last 2 versions",
-    "not ie <= 8"
+    "not ie <= 9"
   ],
   "author": "",
   "description": ""

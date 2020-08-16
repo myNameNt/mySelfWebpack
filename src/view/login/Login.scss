@@ -1,5 +1,5 @@
 .box {
-  background: url(./assets/img/icon.png) no-repeat center center;
+  background: url('../../assets/img/icon.png') no-repeat center center;
   width: 500px;
   height: 500px;
   overflow: hidden;
@@ -10,5 +10,8 @@
     font-size: 25px;
     text-shadow: 5px 5px 5px #FF0000;
     transform: translateX(10px);
+  }
+  img{
+    transform: rotateY(45deg);
   }
 }

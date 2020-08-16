@@ -6,10 +6,10 @@ const MiniCssExtract = require('mini-css-extract-plugin');
 // const px2rem = require('postcss-px2rem');// 移动端使用
 
 const devMode = process.env.NODE_ENV !== 'production'
+const {resolve}=require('path');
 let config = {
   entry: {
-    main: './src/main.jsx',
-    mainTwo: './src/mianTwo.js'
+    main: './src/main.jsx'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -49,7 +49,7 @@ let config = {
             }
           },
           {
-            loader:'postcss-loader',
+            loader: 'postcss-loader',
             // options: { // 移动端使用
             //   ident: 'postcss',
             //   plugins: ()=>[
@@ -131,6 +131,18 @@ let config = {
       filename: devMode ? '[name].css' : "css/[name]_[contenthash:8].css",  // 生成后放到 dist/css   原来的css文件名 加上 8位随机生成的hash数值
       chunkFilename: "[id].css"
     }),
-  ]
+  ],
+  //配置解析模块规则
+  resolve: {
+    //配置解析模块路径别名：优化简写路径，缺点路径没有提示
+    alias: {
+      $assets: resolve(__dirname,'src/assets')
+    },
+    //配置省略文件的后缀名,缺点就是文件不能起相同的名字
+    extensions: ['.jsx', '.js', '.json', '.css'],
+    //告诉webpack去那个文件找node modeles
+    modules: [resolve('./node_modules'), 'node_modules']
+  },
+
 }
 module.exports = config;
