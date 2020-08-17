@@ -5,13 +5,14 @@
   overflow: hidden;
   text-align: center;
   box-shadow: 0px 0px 5px 5px #333;
-  
-  p{
+
+  p {
     font-size: 25px;
     text-shadow: 5px 5px 5px #FF0000;
     transform: translateX(10px);
   }
-  img{
+
+  img {
     transform: rotateY(45deg);
   }
 }

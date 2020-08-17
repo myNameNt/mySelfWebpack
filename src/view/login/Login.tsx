@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
 import style from './Login.scss'
 import img from '$assets/img/icon.png'
-export default class Login extends Component {
-  constructor(props) {
+interface homeProps {
+
+}
+interface homeState {}
+export default class Login extends Component<homeProps,homeState> {
+  constructor(props: homeProps) {
     super(props)
     this.state = {}
   }

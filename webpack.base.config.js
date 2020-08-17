@@ -9,7 +9,7 @@ const devMode = process.env.NODE_ENV !== 'production'
 const {resolve}=require('path');
 let config = {
   entry: {
-    main: './src/main.jsx'
+    main: './src/main.tsx'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -27,6 +27,11 @@ let config = {
         test: /\.jsx$/,
         exclude: /node_modules/,
         use: 'babel-loader'
+      },
+      {
+        test: [/\.ts$/,/\.tsx$/],
+        exclude: /node_modules/,
+        use: 'ts-loader'
       },
       {
         test: /\.scss$/,
@@ -136,10 +141,10 @@ let config = {
   resolve: {
     //配置解析模块路径别名：优化简写路径，缺点路径没有提示
     alias: {
-      $assets: resolve(__dirname,'src/assets')
+      '$assets': resolve(__dirname,'src/assets')
     },
     //配置省略文件的后缀名,缺点就是文件不能起相同的名字
-    extensions: ['.jsx', '.js', '.json', '.css'],
+    extensions: ['.tsx','.ts', '.js', '.json', '.css'],
     //告诉webpack去那个文件找node modeles
     modules: [resolve('./node_modules'), 'node_modules']
   },
