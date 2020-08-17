@@ -19,7 +19,7 @@ class Home extends Component<loginProps, loginState> {
     }
   }
   onAdd(){
-    this.props.onAddClick(1)
+    this.props.onAddClick()
   }
   render() {
     const {num} = this.props
