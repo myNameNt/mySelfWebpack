@@ -1,0 +1,44 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: nt
+ * @Date: 2020-08-20 11:45:19
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2020-08-20 12:00:09
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function kmp(str, value) {
+      let i = 0
+      while (i < str.length) {
+        let j = 0
+        let m = i
+        let isMatch = true
+        for (let j = 0; j < value.length; j++) {
+          if (str[m] !== value[j]) {
+            isMatch = false
+          } else {
+            m++
+          }
+        }
+        if (isMatch) {
+          return i
+        }
+        i++
+      }
+    }
+    console.log(kmp('abcabacbbbabcabcdaaad', 'bba'))
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
